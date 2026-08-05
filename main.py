@@ -7,30 +7,40 @@ janela = ctk.CTk()
 ctk.set_appearance_mode('dark')
 
 janela.title('Lista de Tarefas')
-janela.geometry('650x450')
+janela.geometry('650x550')
 
 tarefas = []
+lista_de_labels = []
 
 def adicionar_tarefas():
     tarefa = tarefas_a_fazer.get()
 
     if tarefa not in tarefas:
         tarefas.append(tarefa)
-        texto_tarefa_add.configure(text='Tarefa adicionada.', text_color='#005c69')
+        texto_tarefa.configure(text='Tarefa adicionada.', text_color='#005c69')
         print(tarefas)
         tarefa_adicionada = ctk.CTkLabel(master=frame_tarefas, text=tarefa)
+        lista_de_labels.append(tarefa_adicionada)
         tarefa_adicionada.pack(pady=5, padx=5, side='left')
     else:
-        texto_tarefa_add.configure(text='Tarefa existente.', text_color='red')
+        texto_tarefa.configure(text='Tarefa existente.', text_color='red')
 
 def remover_tarefas():
-    ...
+    tarefa = tarefas_a_remover.get()
+    if tarefa in tarefas:
+        tarefas.remove(tarefa)
+        texto_tarefa.configure(text='Tarefa removida!', text_color='green')
+    else:
+        texto_tarefa.configure(text='????????')
 
-titulo = ctk.CTkLabel(janela, text='Tarefas:', font=('Times', 15, 'bold'))
+titulo = ctk.CTkLabel(janela, text='Tarefas:', font=('Arial', 20, 'bold'))
 titulo.pack(pady=15)
 
-tarefas_a_fazer = ctk.CTkEntry(janela, placeholder_text='Tarefas a Fazer', font=('Times', 12))
+tarefas_a_fazer = ctk.CTkEntry(janela, placeholder_text='Tarefas a Fazer',width=145, font=('Arial', 16),text_color='blue')
 tarefas_a_fazer.pack(pady=10)
+
+tarefas_a_remover = ctk.CTkEntry(janela, placeholder_text='Tarefas a Remover', width=145, font=('Arial', 16,), text_color='red')
+tarefas_a_remover.pack(padx=20)
 
 frame_tarefas = ctk.CTkScrollableFrame(janela)
 frame_tarefas.pack(pady=20, padx=20, fill = 'x', expand=True)
@@ -41,7 +51,7 @@ botao_add_tarefas.pack(padx=15, pady=15, side='left')
 botao_remocao_tarefas = ctk.CTkButton(janela, text='Remover Tarefa', command=remover_tarefas)
 botao_remocao_tarefas.pack(padx=25, pady=25, side='right')
 
-texto_tarefa_add = ctk.CTkLabel(janela, text='', font=('Times', 12))
-texto_tarefa_add.pack(pady=5)
+texto_tarefa = ctk.CTkLabel(janela, text='', font=('Times', 12))
+texto_tarefa.pack(pady=5)
 
 janela.mainloop()
