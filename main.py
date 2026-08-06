@@ -22,16 +22,29 @@ def adicionar_tarefas():
         tarefa_adicionada = ctk.CTkLabel(master=frame_tarefas, text=tarefa)
         lista_de_labels.append(tarefa_adicionada)
         tarefa_adicionada.pack(pady=5, padx=5, side='left')
+        tarefas_a_fazer.delete(0, 'end')
     else:
         texto_tarefa.configure(text='Tarefa existente.', text_color='red')
 
 def remover_tarefas():
     tarefa = tarefas_a_remover.get()
+
     if tarefa in tarefas:
         tarefas.remove(tarefa)
+        
+
+        for label in lista_de_labels:
+            if label.cget('text') == tarefa:
+                label.destroy()
+                lista_de_labels.remove(label)
+                break
+
+    
         texto_tarefa.configure(text='Tarefa removida!', text_color='green')
+        print(tarefas)
+        tarefas_a_remover.delete(0, 'end')
     else:
-        texto_tarefa.configure(text='????????')
+        texto_tarefa.configure(text='tarefa não encontrada!', text_color='red')
 
 titulo = ctk.CTkLabel(janela, text='Tarefas:', font=('Arial', 20, 'bold'))
 titulo.pack(pady=15)
