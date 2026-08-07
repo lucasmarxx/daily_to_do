@@ -49,10 +49,10 @@ def remover_tarefas():
 titulo = ctk.CTkLabel(janela, text='Tarefas:', font=('Arial', 20, 'bold'))
 titulo.pack(pady=15)
 
-tarefas_a_fazer = ctk.CTkEntry(janela, placeholder_text='Tarefas a Fazer',width=145, font=('Arial', 16),text_color='blue')
+tarefas_a_fazer = ctk.CTkEntry(janela, placeholder_text='Tarefas a Fazer',width=190, font=('Arial', 20),text_color='white')
 tarefas_a_fazer.pack(pady=10)
 
-tarefas_a_remover = ctk.CTkEntry(janela, placeholder_text='Tarefas a Remover', width=145, font=('Arial', 16,), text_color='red')
+tarefas_a_remover = ctk.CTkEntry(janela, placeholder_text='Tarefas a Remover', width=190, font=('Arial', 20,), text_color='red')
 tarefas_a_remover.pack(padx=20)
 
 frame_tarefas = ctk.CTkScrollableFrame(janela)
