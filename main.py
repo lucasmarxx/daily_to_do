@@ -19,7 +19,7 @@ def adicionar_tarefas():
         tarefas.append(tarefa)
         texto_tarefa.configure(text='Tarefa adicionada.', text_color='#005c69')
         print(tarefas)
-        tarefa_adicionada = ctk.CTkLabel(master=frame_tarefas, text=tarefa)
+        tarefa_adicionada = ctk.CTkLabel(master=frame_tarefas, text=tarefa.capitalize())
         lista_de_labels.append(tarefa_adicionada)
         tarefa_adicionada.pack(pady=5, padx=5, side='left')
         tarefas_a_fazer.delete(0, 'end')
@@ -34,7 +34,7 @@ def remover_tarefas():
         
 
         for label in lista_de_labels:
-            if label.cget('text') == tarefa:
+            if label.cget('text') == tarefa.capitalize():
                 label.destroy()
                 lista_de_labels.remove(label)
                 break
