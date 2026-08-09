@@ -59,10 +59,10 @@ frame_tarefas = ctk.CTkScrollableFrame(janela)
 frame_tarefas.pack(pady=20, padx=20, fill = 'x', expand=True)
 
 botao_add_tarefas = ctk.CTkButton(janela, text = 'Adicionar Tarefa', command=adicionar_tarefas)
-botao_add_tarefas.pack(padx=15, pady=15, side='left')
+botao_add_tarefas.pack(padx=15, pady=15)
 
 botao_remocao_tarefas = ctk.CTkButton(janela, text='Remover Tarefa', command=remover_tarefas)
-botao_remocao_tarefas.pack(padx=25, pady=25, side='right')
+botao_remocao_tarefas.pack(padx=25, pady=25)
 
 texto_tarefa = ctk.CTkLabel(janela, text='', font=('Times', 12))
 texto_tarefa.pack(pady=5)
