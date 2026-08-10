@@ -17,7 +17,7 @@ def adicionar_tarefas():
 
     if tarefa not in tarefas:
         tarefas.append(tarefa)
-        texto_tarefa.configure(text='Tarefa adicionada.', text_color='#005c69')
+        texto_tarefa.configure(text='Tarefa adicionada.', text_color='#004E64')
         print(tarefas)
         tarefa_adicionada = ctk.CTkLabel(master=frame_tarefas, text=tarefa.capitalize())
         lista_de_labels.append(tarefa_adicionada)
@@ -40,7 +40,7 @@ def remover_tarefas():
                 break
 
     
-        texto_tarefa.configure(text='Tarefa removida!', text_color='green')
+        texto_tarefa.configure(text='Tarefa removida!', text_color='#004E64')
         print(tarefas)
         tarefas_a_remover.delete(0, 'end')
     else:
@@ -52,7 +52,7 @@ titulo.pack(pady=15)
 tarefas_a_fazer = ctk.CTkEntry(janela, placeholder_text='Tarefas a Fazer',width=190, font=('Arial', 20),text_color='white')
 tarefas_a_fazer.pack(pady=10)
 
-tarefas_a_remover = ctk.CTkEntry(janela, placeholder_text='Tarefas a Remover', width=190, font=('Arial', 20,), text_color='red')
+tarefas_a_remover = ctk.CTkEntry(janela, placeholder_text='Tarefas a Remover', width=190, font=('Arial', 20,), text_color='white')
 tarefas_a_remover.pack(padx=20)
 
 frame_tarefas = ctk.CTkScrollableFrame(janela)
